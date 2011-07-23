@@ -1,8 +1,42 @@
-Vertical Split : Ctrl+w + v
-Horizontal Split: Ctrl+w + s
-Close current windows: Ctrl+w + q
+Windows
+-------
 
-Move one buffer up: Ctrl+k
-Move one buffer down: Ctrl+j
+Ctrl+w + v
+  Vertical Split
+Ctrl+w + s
+  Horizontal Split
+Ctrl+w + q
+  Close current windows
+Ctrl+k
+  Move the window up
+Ctrl+j
+  Move the window down
+Ctrl+l
+  Move the window right 
+Ctrl+h
+  Move the window left 
 
+Buffers
+-------
+
+:e <filename>
+  Open file in a new buffer
+:buffers
+  list current buffers
+:bn, :bp
+  switch to next/previous buffer
+:b<number>
+  switch to numbered buffer , eg: b1, b2
+:bd, :bw
+  close a buffer
+
+Git stuff
+---------
+
+:Git      
+  run arbitrary git commands
+:Gblame   
+  interactive git-blame output. Press 'o' to open this commit in a split window
+:Gdiff    
+  vertical split diff browser
 
