@@ -1,0 +1,28 @@
+if [[ -n $SSH_CONNECTION ]]; then
+  export PS1='%m:%3~$(git_info_for_prompt)%# '
+else
+  export PS1='%3~$(git_info_for_prompt)%# '
+fi
+
+export EDITOR="vim"
+export PATH="$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/local/games:/usr/games"
+
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=3000
+SAVEHIST=3000
+setopt appendhistory autocd
+bindkey -e
+# End of lines configured by zsh-newuser-install
+# The following lines were added by compinstall
+zstyle :compinstall filename '/home/crito/.zshrc'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+PROMPT='[%n@%M:%~] (%?) %B%# %b%>:%{\e[0m%}' 	# default prompt
+RPROMPT='[%* on %D]' 	# prompt for right side of screen
+
+bindkey "^r" history-search-backward
+#bindkey "^" history-search-forward
+

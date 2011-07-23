@@ -1,0 +1,118 @@
+" Turn vim filetype system off and use pathogen to load all plugins
+" https://github.com/tpope/vim-pathogen
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+
+" User Interface
+if has('syntax')        " enable syntax highlighting
+  let python_highlight_all=1
+  syntax on
+endif
+
+set wildmode=list:longest,full  " have command-line completion <TAB>
+set showmode                    " display the current mode and partially
+                                "  typed commands in the status line:
+set showmatch                   " show matching parenthesis/brackets
+set shortmess+=filmnrxoOtT      " abbrev. of messages (avoids 'hit enter')
+
+if has('cmdline_info')
+    set ruler                   " show the ruler
+    " a ruler on steroids
+    set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%)
+    set showcmd                 " show partial commands in status line and
+                                "   selected characters/lines in visual mode
+endif
+
+if has('statusline')
+    set laststatus=1           " show statusline only if there are > 1 windows
+    " a statusline, also on steroids
+    set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P
+endif
+
+
+" Text Formatting
+"set wrap                        " wrap long lines
+set tabstop=4                   " default 4 spaces as tab
+set shiftwidth=4                " use indents of 4 spaces
+"set shiftround                  
+set textwidth=79                " the text width
+set expandtab                   " spaces instead of tabs, CTRL-V<Tab> to insert
+                                "  a real space
+set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
+                                "   just press F12 when you are going to
+                                "   paste several lines of text so they won't
+                                "   be indented
+                                "   When in paste mode, everything is inserted
+                                "   literally.
+set autoindent                  " always set autoindenting on
+"set noautoindent
+set smartindent                " smart indent
+set cindent                    " cindent
+set nosmartindent
+set nocindent                                  
+
+" code folding
+set foldmethod=indent
+set foldlevel=99
+
+" move between windows
+map <c-j> <c-w>j
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+map <c-h> <c-w>h
+
+" tasklist mapping
+" Detect every TODO or FIXME and creates a task list
+map <leader>td <Plug>TaskList
+
+" Toggel gundo revision history
+map <leader>g :GundoToggle<CR>
+
+" syntax highlighting
+syntax on                    	" syntax highlighing
+filetype on                  	" try to detect filetypes
+filetype plugin indent on    	" enable loading indent file for filetype
+
+let g:pyflakes_use_quickfix = 0
+
+" map the pep 8 check
+let g:pep8_map='<leader>8'
+
+" tab completion, using supertab
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+
+set completeopt=menuone,longest,preview
+
+"
+" 4) Search & Replace
+"
+set hlsearch        " highlight searches
+set incsearch       " do incremental searching
+
+" make searches case-insensitive, unless they contain upper-case letters:
+set ignorecase
+set smartcase
+
+" Automatic replacements
+cmap W w 
+cmap Q q 
+
+" assume the /g flag on :s substitutions to replace all matches in a line:
+set gdefault
+
+" use <F6> to cycle through split windows (and <Shift>+<F6> to cycle backwards,
+" where possible):
+nnoremap <F6> <C-W>w
+nnoremap <S-F6> <C-W>W
+
+" use <Ctrl>+N/<Ctrl>+P to cycle through files:
+nnoremap <C-N> :next<CR>
+nnoremap <C-P> :prev<CR>
+" [<Ctrl>+N by default is like j, and <Ctrl>+P like k.]
+
+" have % bounce between angled brackets, as well as t'other kinds:
+set matchpairs+=<:>
+
+" vim: set sw=4 ts=4 sts=0 et tw=78 nofen fdm=indent ft=vim :
