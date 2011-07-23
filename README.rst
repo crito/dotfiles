@@ -1,6 +1,8 @@
 VIM HowTo
 =========
 
+Mostly taken from: http://sontek.net/turning-vim-into-a-modern-python-ide
+
 This vimrc sets up a pyhon/django oriented IDE. It uses vim-pathogen to load
 all plugins. I followed these steps to set up this config::
 
