@@ -54,6 +54,7 @@ set nocindent
 
 " code folding
 set foldmethod=indent
+set foldnestmax=1
 set foldlevel=99
 
 " move between windows
