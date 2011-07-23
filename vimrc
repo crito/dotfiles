@@ -115,4 +115,7 @@ nnoremap <C-P> :prev<CR>
 " have % bounce between angled brackets, as well as t'other kinds:
 set matchpairs+=<:>
 
+" remap makegreen, otherwise it colides
+map <unique> <silent> <Leader>tr :call MakeGreen()<cr>
+
 " vim: set sw=4 ts=4 sts=0 et tw=78 nofen fdm=indent ft=vim :

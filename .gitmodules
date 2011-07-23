@@ -1,6 +1,3 @@
-[submodule "vim/autoload/pathogen.vim"]
-	path = vim/autoload/pathogen.vim
-	url = https://github.com/tpope/vim-pathogen.git
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive.git
@@ -52,3 +49,6 @@
 [submodule "vim/bundle/makegreen"]
 	path = vim/bundle/makegreen
 	url = https://github.com/reinh/vim-makegreen
+[submodule "vim/autoload/pathogen"]
+	path = vim/autoload/pathogen
+	url = https://github.com/tpope/vim-pathogen.git
