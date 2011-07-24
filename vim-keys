@@ -30,8 +30,8 @@ Buffers
 :bd, :bw
   close a buffer
 
-Git stuff
----------
+Git stuff (fugitive)
+--------------------
 
 :Git      
   run arbitrary git commands
@@ -39,12 +39,22 @@ Git stuff
   like git-add if called from a work tree file and liek git-checkout when
   called from index or a blob in history.
 :Gread
-  a variant of git-checkout -- filename
+  a variant of git-checkout -- filename. use 'u' to undo.
 :Gblame   
   interactive git-blame output. Press 'o' to open this commit in a split window
 :Gdiff    
   vertical split diff browser
-
+:Gedit, Gsplit, Gvsplit, Gtabedit
+  view any blob, tree, commit, or tag in the repository
+:Gstatus
+  git-status in a new buffer
+:Gcommit
+  guess
+:Gmove, Gremove
+  runs a git-mv and simultaneosly renames the buffer/simultaneosuly deletes
+  buffers and does a git-rm
+:Ggrep
+  search the work tree
 
 text snippets (snipmate)
 ------------------------
