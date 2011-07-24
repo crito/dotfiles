@@ -35,10 +35,16 @@ Git stuff
 
 :Git      
   run arbitrary git commands
+:Gwrite
+  like git-add if called from a work tree file and liek git-checkout when
+  called from index or a blob in history.
+:Gread
+  a variant of git-checkout -- filename
 :Gblame   
   interactive git-blame output. Press 'o' to open this commit in a split window
 :Gdiff    
   vertical split diff browser
+
 
 text snippets (snipmate)
 ------------------------
