@@ -80,4 +80,7 @@ Now get all the requirements::
     git submodule foreach git submodule init
     git submodule foreach git submodule update
 
+On ubuntu/debian you have to run this command to enable ack-grep (taken from:
+http://betterthangrep.com/)::
 
+    sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep

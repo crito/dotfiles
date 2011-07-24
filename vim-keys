@@ -82,6 +82,60 @@ ifmain
 _
   __{magic}__ template
 
+tasklist
+--------
+
+\td
+  open tasklist. Search in all open buffers for FIXME or TODO and display a
+  list. Easily jump between those positions.
+
+pep8
+----
+
+\8
+  run a pep8 check on the current buffer.
+
+revision history
+----------------
+
+\g
+  toggle gundo.
+
+command-t
+---------
+
+\t
+  fuzzy text matching to find any file
+\b
+  fuzzy text matching to find any open buffer
+
+Inside the prompt you have the following shortcuts:
+
+CTRL+H
+  move left
+CTRL+L
+  move right
+BACKSPACE
+  delete characters
+CTRL+A
+  jump to begin of the prompt
+CTRL+E
+  jump to the end of the prompt
+
+ack-grep
+--------
+
+\a
+  Open ack-grep search
+:grep
+  vim grep  
+
+file browser
+------------
+
+\n
+  toggle NERDtree
+
 vim general
 -----------
 

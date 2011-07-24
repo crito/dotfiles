@@ -122,8 +122,12 @@ map <unique> <silent> <Leader>tr :call MakeGreen()<cr>
 " map ack search (like grep)
 nmap <leader>a <Esc>:Ack!
 
+" replace default grep with ack-grep
+set grepprg=ack-grep
+
 " django-nose integration
-map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
+"map <leader>dn :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
+map <leader>dn :set makeprg=bin/test-1.3 \|:call MakeGreen()<CR>
 
 " py.test
 " Execute the tests
@@ -135,6 +139,21 @@ nmap <silent><Leader>tn <Esc>:Pytest next<CR>
 nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
 nmap <silent><Leader>te <Esc>:Pytest error<CR>
 
+" git specific statusline
+"%{fugitive#statusline()}
+
 " change default colorscheme
-let g:colorscheme = "blackboard"
+colorscheme blackboard
+"set background=dark
+
+" toggle NERDTreeBrowser
+map <leader>n :NERDTreeToggle<CR>
+
+" refactor python
+map <leader>j :RopeGotoDefinition<CR>
+map <leader>r :RopeRename<CR>
+
+" RopeOpenProject
+map <C-X>po <C+x>po       
+
 " vim: set sw=4 ts=4 sts=0 et tw=78 nofen fdm=indent ft=vim :
