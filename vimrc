@@ -119,4 +119,22 @@ set matchpairs+=<:>
 " remap makegreen, otherwise it colides
 map <unique> <silent> <Leader>tr :call MakeGreen()<cr>
 
+" map ack search (like grep)
+nmap <leader>a <Esc>:Ack!
+
+" django-nose integration
+map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
+
+" py.test
+" Execute the tests
+nmap <silent><Leader>tf <Esc>:Pytest file<CR>
+nmap <silent><Leader>tc <Esc>:Pytest class<CR>
+nmap <silent><Leader>tm <Esc>:Pytest method<CR>
+" cycle through test errors
+nmap <silent><Leader>tn <Esc>:Pytest next<CR>
+nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
+nmap <silent><Leader>te <Esc>:Pytest error<CR>
+
+" change default colorscheme
+let g:colorscheme = "blackboard"
 " vim: set sw=4 ts=4 sts=0 et tw=78 nofen fdm=indent ft=vim :

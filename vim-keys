@@ -40,3 +40,35 @@ Git stuff
 :Gdiff    
   vertical split diff browser
 
+text snippets (snipmate)
+------------------------
+
+#!
+  ``#!/usr/bin/env python``
+imp
+  import module
+wh
+  while loop
+for
+  for loop
+cl
+  class template with constructor
+defs
+  method template (with self reference as first argument)
+.
+  self.
+def
+  function template with docstring
+deff
+  function template without docstring
+ifmain
+  if __name__ == '__main__': 
+_
+  __{magic}__ template
+
+vim general
+-----------
+
+:version
+:map
+:map!

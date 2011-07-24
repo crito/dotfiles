@@ -20,6 +20,42 @@ We use vim-pathogen to load the modules.::
 
     git submodule add https://github.com/tpope/vim-pathogen.git vim/autoload/pathogen.vim
 
+The modules:
+
+fugitive
+
+git
+
+snipmate
+
+surround
+
+supertab
+
+minibufexpl
+
+command-t
+
+pyflakes-pathogen
+
+ack
+
+gundo
+
+pydoc
+
+pep8
+
+py.test
+
+makegreen
+
+tasklist
+
+nerdtree
+
+ropevim
+
 Now get all the requirements::
 
     git submodule add http://github.com/tpope/vim-fugitive.git vim/bundle/fugitive
