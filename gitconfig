@@ -1,0 +1,9 @@
+[user]
+	name = Christo Buschek
+	email = crito@30loops.net
+    signingkey = 1CFA02A2
+[color]
+	status = always
+	diff = always
+[merge]
+	tool = vimdiff
