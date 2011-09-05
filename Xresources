@@ -1,0 +1,63 @@
+! xscreensaver ---------------------------------------------------------------
+
+!font settings
+xscreensaver.Dialog.headingFont:        -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #101010
+xscreensaver.Dialog.background:         #D8D8D8
+xscreensaver.Dialog.topShadowColor:     #D8D8D8
+xscreensaver.Dialog.bottomShadowColor:  #D8D8D8
+xscreensaver.Dialog.Button.foreground:  #101010
+xscreensaver.Dialog.Button.background:  #E5E5E5
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #101010
+xscreensaver.Dialog.text.background:    #E5E5E5
+xscreensaver.Dialog.internalBorderWidth:24
+xscreensaver.Dialog.borderWidth:        20
+xscreensaver.Dialog.shadowThickness:    2
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #101010
+xscreensaver.passwd.thermometer.background:  #2E2E2E
+xscreensaver.passwd.thermometer.width:       8
+
+!
+! Comments begin with a "!" character.
+!
+
+!XTerm*background:       Black
+!XTerm*foreground:       Green
+!XTerm*cursorColor:      Green
+xterm*Background:       black
+xterm*Foreground:       green
+xterm*cursorColor:      LightBlue
+xterm*pointerShape:     arrow
+xterm*pointerColor:     blue
+XTerm.vt100.geometry:   79x25
+XTerm*scrollBar:        false
+!XTerm*scrollTtyOutput:  false
+! supposedly the following line enables to copy urls
+XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
+xterm.eightBitInput: true
+! xterm*font: -adobe-courier-bold-r-normal--14-140-75-75-m-90-iso8859-1
+xterm*SaveLines: 2000
+! xterm*VisualBell: true
+xterm*appcursorDefault: true
+*XTerm*saveLines: 1000
+
+! rxvt-unicode configuration
+! see: https://wiki.archlinux.org/index.php/Rxvt-unicode#Configuration
+URxvt.depth: 32
+URxvt.background: rgba:1111/1111/1111/dddd
+URxvt.scrollBar: off
+! clickable urls
+URxvt.perl-ext-common:  default,matcher
+URxvt.urlLauncher:      /usr/bin/firefox
+URxvt.matcher.button:   1
+urxvt*foreground: green
+urxvt*background: black
