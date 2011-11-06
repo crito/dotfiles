@@ -1,0 +1,11 @@
+# term
+term xterm-256color
+
+# main options
+altscreen on
+attrcolor b ".I"
+defbce "on"
+
+# some termcaps
+termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+termcapinfo rxvt-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'

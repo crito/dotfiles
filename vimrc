@@ -125,6 +125,8 @@ set matchpairs+=<:>
 map <unique> <silent> <Leader>tr :call MakeGreen()<cr>
 
 " map ack search (like grep)
+" The exclamation mark is added to prevent Ack to open the first result
+" automaticaly.
 nmap <leader>a <Esc>:Ack!
 
 " replace default grep with ack-grep
@@ -152,9 +154,14 @@ nmap <silent><Leader>te <Esc>:Pytest error<CR>
 " git specific statusline
 "%{fugitive#statusline()}
 
+" 256 colors only if you can handle it
+if $TERM =~ "-256color"
+  set t_Co=256
+  colorscheme zenburn
+endif
 " change default colorscheme
 "colorscheme blackboard
-colorscheme wombat256
+" colorscheme wombat256
 "set background=dark
 
 " toggle NERDTreeBrowser
