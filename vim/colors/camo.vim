@@ -1,7 +1,6 @@
 " Vim color file
 " Maintainer:   Tim Aldrich <aldy0169@yahoo.com>
 " Last Change:  19 January 2002
-
 set background=dark
 hi clear
 if exists("syntax_on")

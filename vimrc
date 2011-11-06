@@ -1,8 +1,11 @@
 " Turn vim filetype system off and use pathogen to load all plugins
 " https://github.com/tpope/vim-pathogen
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
+"filetype off
+"call pathogen#runtime_append_all_bundles()
+"call pathogen#helptags()
+call pathogen#infect()
+syntax on
+filetype plugin indent on
 
 " User Interface
 if has('syntax')        " enable syntax highlighting
@@ -10,6 +13,8 @@ if has('syntax')        " enable syntax highlighting
   syntax on
 endif
 
+set so=7                        " Set 7 lines to the cursor - when moving vertical
+set cmdheight=2                 " The commandbar height
 set wildmode=list:longest,full  " have command-line completion <TAB>
 set showmode                    " display the current mode and partially
                                 "  typed commands in the status line:
@@ -126,8 +131,13 @@ nmap <leader>a <Esc>:Ack!
 set grepprg=ack-grep
 
 " django-nose integration
-"map <leader>dn :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
-map <leader>dn :set makeprg=bin/test-1.3 \|:call MakeGreen()<CR>
+map <leader>dn :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
+"map <leader>dn :set makeprg=bin/test-1.3 \|:call MakeGreen()<CR>
+
+" Taglist
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+map T :TaskList<CR>
+map P :TlistToggle<CR>
 
 " py.test
 " Execute the tests
@@ -143,7 +153,8 @@ nmap <silent><Leader>te <Esc>:Pytest error<CR>
 "%{fugitive#statusline()}
 
 " change default colorscheme
-colorscheme blackboard
+"colorscheme blackboard
+colorscheme wombat256
 "set background=dark
 
 " toggle NERDTreeBrowser
@@ -155,5 +166,17 @@ map <leader>r :RopeRename<CR>
 
 " RopeOpenProject
 map <C-X>po <C+x>po       
+" Add the virtualenv's site-packages to vim path
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 " vim: set sw=4 ts=4 sts=0 et tw=78 nofen fdm=indent ft=vim :
+

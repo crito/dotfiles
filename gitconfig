@@ -2,8 +2,22 @@
 	name = Christo Buschek
 	email = crito@30loops.net
     signingkey = 1CFA02A2
+[merge]
+    tool = vimdiff
 [color]
+    ui = auto
 	status = always
 	diff = always
-[merge]
-	tool = vimdiff
+  [color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+  [color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+  [color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan

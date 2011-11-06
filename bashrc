@@ -129,4 +129,12 @@ DEBEMAIL=crito@30loops.net
 DEBFULLNAME="Christo Buschek"
 export DEBEMAIL DEBFULLNAME
 
+### setup my python environment
+
 source /home/crito/.pythonbrew/etc/bashrc
+# USE AS DEFAULT PYTHON 2.7.2
+pybrew use 2.7.2
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$HOME/.pythonbrew/pythons/Python-2.7.2/bin/python
+source $HOME/.pythonbrew/pythons/Python-2.7.2/bin/virtualenvwrapper.sh
+

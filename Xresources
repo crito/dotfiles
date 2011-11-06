@@ -26,38 +26,37 @@ xscreensaver.passwd.thermometer.foreground:  #101010
 xscreensaver.passwd.thermometer.background:  #2E2E2E
 xscreensaver.passwd.thermometer.width:       8
 
-!
-! Comments begin with a "!" character.
-!
-
-!XTerm*background:       Black
-!XTerm*foreground:       Green
-!XTerm*cursorColor:      Green
-xterm*Background:       black
-xterm*Foreground:       green
-xterm*cursorColor:      LightBlue
-xterm*pointerShape:     arrow
-xterm*pointerColor:     blue
-XTerm.vt100.geometry:   79x25
-XTerm*scrollBar:        false
-!XTerm*scrollTtyOutput:  false
-! supposedly the following line enables to copy urls
-XTerm*charClass: 33:48,36-47:48,58-59:48,61:48,63-64:48,95:48,126:48
-xterm.eightBitInput: true
-! xterm*font: -adobe-courier-bold-r-normal--14-140-75-75-m-90-iso8859-1
-xterm*SaveLines: 2000
-! xterm*VisualBell: true
-xterm*appcursorDefault: true
-*XTerm*saveLines: 1000
-
-! rxvt-unicode configuration
-! see: https://wiki.archlinux.org/index.php/Rxvt-unicode#Configuration
-URxvt.depth: 32
-URxvt.background: rgba:1111/1111/1111/dddd
+! urxvt -----------------------------------------------------------------------
 URxvt.scrollBar: off
-! clickable urls
-URxvt.perl-ext-common:  default,matcher
-URxvt.urlLauncher:      /usr/bin/firefox
-URxvt.matcher.button:   1
-urxvt*foreground: green
-urxvt*background: black
+URxvt.perl-ext:      default,url-select
+URxvt.keysym.M-u:    perl:url-select:select_next
+URxvt.urlLauncher:   firefox
+URxvt.underlineURLs: true
+!URxvt.font:          lucidasanstypewriter-12 -b&h-lucidatypewriter-medium-r-normal-sans-17-120-100-100-m-100-iso8859-1
+!URxvt*font: xft:terminus:pixelsize=12
+URxvt*saveLines: 12000
+! Traditional fonts - a more traditional font setup in lieu of xft
+!URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
+URxvt*boldFont:-*-courier-bold-r-normal-*-12-*-*-*-*-*-iso8859-1
+
+
+! xterm ----------------------------------------------------------------------
+
+xterm*geometry:           80x25
+xterm*faceName:           terminus:bold:pixelsize=14
+!xterm*font:              -*-dina-medium-r-*-*-16-*-*-*-*-*-*-*
+xterm*dynamicColors:      true
+xterm*utf8:               2
+xterm*eightBitInput:      true
+xterm*saveLines:          512
+xterm*scrollTtyKeypress:  true
+xterm*scrollTtyOutput:    false
+xterm*scrollBar:          false
+xterm*rightScrollBar:     true
+xterm*jumpScroll:         true
+xterm*multiScroll:        true
+xterm*toolBar:            false
+
+! color schemes for terminals -----------------------------------------------
+!*foreground: green
+!*background: black
