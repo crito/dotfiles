@@ -1,28 +1,76 @@
-if [[ -n $SSH_CONNECTION ]]; then
-  export PS1='%m:%3~$(git_info_for_prompt)%# '
-else
-  export PS1='%3~$(git_info_for_prompt)%# '
+# Source oh-my-zsh if it is installed.
+if [[ -d $HOME/.oh-my-zsh ]]; then
+  # Path to your oh-my-zsh configuration.
+  ZSH=$HOME/.oh-my-zsh
+
+  # Set name of the theme to load.
+  # Look in ~/.oh-my-zsh/themes/
+  # Optionally, if you set this to "random", it'll load a random theme each
+  # time that oh-my-zsh is loaded.
+  ZSH_THEME="robbyrussell"
+
+  # Example aliases
+  # alias zshconfig="mate ~/.zshrc"
+  # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+  # Set to this to use case-sensitive completion
+  # CASE_SENSITIVE="true"
+
+  # Comment this out to disable weekly auto-update checks
+  # DISABLE_AUTO_UPDATE="true"
+
+  # Uncomment following line if you want to disable colors in ls
+  # DISABLE_LS_COLORS="true"
+
+  # Uncomment following line if you want to disable autosetting terminal title.
+  # DISABLE_AUTO_TITLE="true"
+
+  # Uncomment following line if you want red dots to be displayed while waiting for completion
+  # COMPLETION_WAITING_DOTS="true"
+
+  # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+  # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+  # Example format: plugins=(rails git textmate ruby lighthouse)
+  plugins=(git archlinux django python sprunge)
+
+  source $ZSH/oh-my-zsh.sh
 fi
 
-export EDITOR="vim"
-export PATH="$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/local/games:/usr/games"
+#if [[ -n $SSH_CONNECTION ]]; then
+#  export PS1='%m:%3~$(git_info_for_prompt)%# '
+#else
+#  export PS1='%3~$(git_info_for_prompt)%# '
+#fi
+
+# Default editor
+export EDITOR=/usr/bin/vim
+
+export PATH="$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/games:/usr/games"
+
+# Things I don't want to publish to github
+[[ -s "$HOME/.secrets" ]] && source "$HOME/.secrets"
+
+# Vim mode
+#bindkey -v
+# Emacs mode
+bindkey -e
+
+# Give me my bash style incremental search
+bindkey '^R' history-incremental-search-backward
+
+### setup my python environment
+
+source $HOME/.pythonbrew/etc/bashrc
+# USE AS DEFAULT PYTHON 2.7.2
+pybrew use 2.7.3
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$HOME/.pythonbrew/pythons/Python-2.7.3/bin/python
+source $HOME/.pythonbrew/pythons/Python-2.7.3/bin/virtualenvwrapper.sh
 
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
 HISTSIZE=3000
 SAVEHIST=3000
-setopt appendhistory autocd
-bindkey -e
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/crito/.zshrc'
-
-autoload -Uz compinit
-compinit
 # End of lines added by compinstall
-PROMPT='[%n@%M:%~] (%?) %B%# %b%>:%{\e[0m%}' 	# default prompt
-RPROMPT='[%* on %D]' 	# prompt for right side of screen
-
-bindkey "^r" history-search-backward
-#bindkey "^" history-search-forward
-
+#PROMPT='[%n@%M:%~] (%?) %B%# %b%>:%{\e[0m%}' 	# default prompt
+#RPROMPT='[%* on %D]' 	# prompt for right side of screen

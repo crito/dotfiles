@@ -27,17 +27,17 @@ xscreensaver.passwd.thermometer.background:  #2E2E2E
 xscreensaver.passwd.thermometer.width:       8
 
 ! urxvt -----------------------------------------------------------------------
-URxvt.scrollBar: off
-URxvt.perl-ext:      default,url-select
-URxvt.keysym.M-u:    perl:url-select:select_next
-URxvt.urlLauncher:   firefox
-URxvt.underlineURLs: true
-!URxvt.font:          lucidasanstypewriter-12 -b&h-lucidatypewriter-medium-r-normal-sans-17-120-100-100-m-100-iso8859-1
-!URxvt*font: xft:terminus:pixelsize=12
-URxvt*saveLines: 12000
-! Traditional fonts - a more traditional font setup in lieu of xft
-!URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
-URxvt*boldFont:-*-courier-bold-r-normal-*-12-*-*-*-*-*-iso8859-1
+!URxvt.scrollBar: off
+!URxvt.perl-ext:      default,url-select
+!URxvt.keysym.M-u:    perl:url-select:select_next
+!URxvt.urlLauncher:   firefox
+!URxvt.underlineURLs: true
+!!URxvt.font:          lucidasanstypewriter-12 -b&h-lucidatypewriter-medium-r-normal-sans-17-120-100-100-m-100-iso8859-1
+!!URxvt*font: xft:terminus:pixelsize=12
+!URxvt*saveLines: 12000
+!! Traditional fonts - a more traditional font setup in lieu of xft
+!!URxvt*font:-*-courier-medium-r-normal-*-14-*-*-*-*-*-iso8859-1
+!URxvt*boldFont:-*-courier-bold-r-normal-*-12-*-*-*-*-*-iso8859-1
 
 
 ! xterm ----------------------------------------------------------------------
@@ -60,3 +60,106 @@ xterm*toolBar:            false
 ! color schemes for terminals -----------------------------------------------
 !*foreground: green
 !*background: black
+XTerm*termName: xterm-256color
+URxvt*termName: rxvt-256color
+
+!*background: #002b36
+!*foreground: #657b83
+!!!*fading: 40
+!*fadeColor: #002b36
+!*cursorColor: #93a1a1
+!*pointerColorBackground: #586e75
+!*pointerColorForeground: #93a1a1
+
+!!! black dark/light
+!*color0: #073642
+!*color8: #002b36
+
+!!! red dark/light
+!*color1: #dc322f
+!*color9: #cb4b16
+
+!!! green dark/light
+!*color2: #859900
+!*color10: #586e75
+
+!!! yellow dark/light
+!*color3: #b58900
+!*color11: #657b83
+
+!!! blue dark/light
+!*color4: #268bd2
+!*color12: #839496
+
+!!! magenta dark/light
+!*color5: #d33682
+!*color13: #6c71c4
+
+!!! cyan dark/light
+!*color6: #2aa198
+!*color14: #93a1a1
+
+!!! white dark/light
+!*color7: #eee8d5
+!*color15: #fdf6e3
+
+urxvt*font:             xft:terminus:pixelsize=14
+urxvt*boldFont:         xft:terminus:pixelsize=14
+URxvt.perl-ext-common:  default,url-select,clipboard,font
+URxvt.keysym.M-u:       perl:url-select:select_next
+URxvt.urlLauncher:      firefox
+URxvt.underlineURLs:    true
+urxvt*termName:         rxvt-256color
+urxvt*background:       #212629
+urxvt*foreground:       #737c80
+urxvt*scrollBar:        false
+urxvt*matcher.button:   1
+urxvt*cursorBlink:      true
+urxvt*cursorColor:      #c1c8c9
+urxvt*colorBD:          #9a7b88  
+urxvt*saveLines:        12000
+urxvt.keysym.Control-Shift-Up:      perl:font:increment
+urxvt.keysym.Control-Shift-Down:    perl:font:decrement
+urxvt.keysym.Control-Shift-C:   perl:clipboard:copy
+urxvt.keysym.Control-Shift-V:   perl:clipboard:paste
+!URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+!URxvt.clipboard.copycmd:  xclip -i -selection clipboard
+!URxvt.clipboard.pastecmd: parcellite -c
+
+urxvt.transparent:      false
+urxvt*allow_bold:       true
+
+Xft*dpi:                96
+Xft*antialias:          true
+Xft*hinting:            full
+
+URxvt*inheritPixmap:    false
+!URxvt*tintColor:       black
+!URxvt*shading:         80
+!URxvt*geometry:        80x17
+
+!black
+URxvt*color0:           #111313
+URxvt*color8:           #424446
+!red
+URxvt*color1:           #9e6b71
+URxvt*color9:           #b69094
+!green
+URxvt*color2:           #719e6b
+URxvt*color10:          #94b690
+!yellow
+URxvt*color3:           #9e986c
+URxvt*color11:          #b5b18f
+!blue
+!URxvt*color4:           #6c8b9e
+URxvt*color4:           #1547a4
+URxvt*color12:          #90a7b6
+!magenta
+URxvt*color5:           #986b9e
+URxvt*color13:          #b290b6
+!cyan
+URxvt*color6:           #6b9e98
+URxvt*color14:          #90b6b3
+!white
+URxvt*color7:           #b8baba
+URxvt*color15:          #cdcfce
