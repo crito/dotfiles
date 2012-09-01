@@ -57,7 +57,7 @@ fun! SetupVAM()
   exec 'set runtimepath+='.vam_install_path.'/vim-addon-manager'
 
   " Tell VAM which plugins to fetch & load:
-  call vam#ActivateAddons(["github:nvie/vim-flake8", "github:mileszs/ack.vim", "github:kien/ctrlp.vim", "github:ddollar/nerdcommenter", "github:scrooloose/syntastic", "github:majutsushi/tagbar", "github:tpope/vim-fugitive", "github:vim-scripts/ZoomWin", "github:chrisbra/NrrwRgn", "github:vim-scripts/TaskList.vim", "github:sjl/gundo.vim", "github:vim-scripts/YankRing.vim", "github:scrooloose/nerdtree", "snipmate-snippets", "github:int3/vim-extradite", "github:ervandew/supertab", "github:dterei/VimBookmarking", "github:sjbach/lusty", "github:tpope/vim-surround", "github:tsaleh/vim-matchit"], {'auto_install' : 0})
+  call vam#ActivateAddons(["github:nvie/vim-flake8", "github:mileszs/ack.vim", "github:kien/ctrlp.vim", "github:ddollar/nerdcommenter", "github:scrooloose/syntastic", "github:majutsushi/tagbar", "github:tpope/vim-fugitive", "github:vim-scripts/ZoomWin", "github:chrisbra/NrrwRgn", "github:vim-scripts/TaskList.vim", "github:sjl/gundo.vim", "github:vim-scripts/YankRing.vim", "github:scrooloose/nerdtree", "snipmate-snippets", "github:int3/vim-extradite", "github:ervandew/supertab", "github:dterei/VimBookmarking", "github:sjbach/lusty", "github:tpope/vim-surround", "github:tsaleh/vim-matchit", "Gist", "github:mattn/webapi-vim"], {'auto_install' : 0})
   " sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
 
   " Addons are put into vam_install_path/plugin-name directory
@@ -393,6 +393,14 @@ command! StripTrailingWhitespaces call <SID>StripTrailingWhitespaces()
 
 " ===== Taglist
 map <F4> :TagbarToggle<cr>
+
+" ===== Gist
+" Copy gist code to cliboard
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+map <leader>Ga :Gist -a<cr>
+map <leader>Gp :Gist -p<cr>
 
 " tasklist mapping
 " Detect every TODO or FIXME and creates a task list
