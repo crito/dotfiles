@@ -118,6 +118,7 @@ urxvt*cursorBlink:      true
 urxvt*cursorColor:      #c1c8c9
 urxvt*colorBD:          #9a7b88  
 urxvt*saveLines:        12000
+urxvt.iso14755_52:      false
 urxvt.keysym.Control-Shift-Up:      perl:font:increment
 urxvt.keysym.Control-Shift-Down:    perl:font:decrement
 urxvt.keysym.Control-Shift-C:   perl:clipboard:copy

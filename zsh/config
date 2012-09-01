@@ -45,6 +45,9 @@ fi
 # Default editor
 export EDITOR=/usr/bin/vim
 
+# Default browser, set this for urlscan (mutt)
+export BROWSER=/usr/bin/firefox
+
 export PATH="$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/games:/usr/games"
 
 # Things I don't want to publish to github
