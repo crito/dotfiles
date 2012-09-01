@@ -1,1 +1,0 @@
-../colors/blackboard.vim
