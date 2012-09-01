@@ -360,8 +360,7 @@ endif
 
 " ===== NerdComments
 " Command-/ to toggle comments
-map <leader>\ :TComment<CR>
-imap <leader>\ <Esc>:TComment<CR>i
+map <leader>\ <plug>NERDCommenterToggle
 
 " ===== ack grep
 " map ack search (like grep)
