@@ -69,12 +69,6 @@ fi
 
 setopt appendhistory autocd
 
-# TMUX
-#if which tmux 2>&1 >/dev/null; then
-#    #if not inside a tmux session, and if no session is started, start a new session
-#    test -z "$TMUX" && (tmux attach || tmux new-session)
-#fi
-
 # Default editor
 export EDITOR=/usr/bin/vim
 # Default browser, set this for urlscan (mutt)
@@ -103,3 +97,13 @@ export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=$HOME/.pythonbrew/pythons/Python-2.7.3/bin/python
 source $HOME/.pythonbrew/pythons/Python-2.7.3/bin/virtualenvwrapper.sh
 
+# Attach to an existing tmux session or create a new one
+#if which tmux 2>&1 >/dev/null; then
+#    #if not inside a tmux session, and if no session is started, start a new session
+#    test -z "$TMUX" && (tmux attach || tmux new-session)
+#fi
+#
+# OR
+#
+# Start a tmux session on each login
+#[[ $TERM != screen* ]] && exec tmux
