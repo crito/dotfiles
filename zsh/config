@@ -36,15 +36,47 @@ if [[ -d $HOME/.oh-my-zsh ]]; then
   source $ZSH/oh-my-zsh.sh
 fi
 
-#if [[ -n $SSH_CONNECTION ]]; then
-#  export PS1='%m:%3~$(git_info_for_prompt)%# '
-#else
-#  export PS1='%3~$(git_info_for_prompt)%# '
+# Customize the theme settings
+ZSH_THEME_GIT_PROMPT_PREFIX=" on %{$fg[magenta]%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[green]%}!"
+ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$fg[green]%}?"
+ZSH_THEME_GIT_PROMPT_CLEAN=""
+
+if [[ -n $SSH_CONNECTION ]]; then
+  PROMPT='
+%{$fg[magenta]%}%n%{$reset_color%} at %{$fg[yellow]%}%m%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)
+$(virtualenv_info)$(prompt_char) '
+else
+  PROMPT='
+%{$fg[magenta]%}%n%{$reset_color%} in %{$fg_bold[green]%}$(collapse_pwd)%{$reset_color%}$(hg_prompt_info)$(git_prompt_info)
+$(virtualenv_info)$(prompt_char) '
+fi
+
+RPROMPT='[%* on %D]' 	# prompt for right side of screen
+
+# Save the history, that should be enough
+HISTFILE=~/.histfile
+HISTSIZE=3000
+SAVEHIST=3000
+
+# Set a better terminal
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+    export TERM='xterm-256color'
+else
+    export TERM='xterm-color'
+fi
+
+setopt appendhistory autocd
+
+# TMUX
+#if which tmux 2>&1 >/dev/null; then
+#    #if not inside a tmux session, and if no session is started, start a new session
+#    test -z "$TMUX" && (tmux attach || tmux new-session)
 #fi
 
 # Default editor
 export EDITOR=/usr/bin/vim
-
 # Default browser, set this for urlscan (mutt)
 export BROWSER=/usr/bin/firefox
 
@@ -55,30 +87,19 @@ export PATH="$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/s
 
 # Vim mode
 #bindkey -v
-# Emacs mode
+# Emacs mode, it does feel better than vim
 bindkey -e
 
 # Give me my bash style incremental search
 bindkey '^R' history-incremental-search-backward
 
-### setup my python environment
 
+### setup my python environment
 source $HOME/.pythonbrew/etc/bashrc
+
 # USE AS DEFAULT PYTHON 2.7.2
 pybrew use 2.7.3
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=$HOME/.pythonbrew/pythons/Python-2.7.3/bin/python
 source $HOME/.pythonbrew/pythons/Python-2.7.3/bin/virtualenvwrapper.sh
 
-# Lines configured by zsh-newuser-install
-HISTFILE=~/.histfile
-HISTSIZE=3000
-SAVEHIST=3000
-# End of lines added by compinstall
-#PROMPT='[%n@%M:%~] (%?) %B%# %b%>:%{\e[0m%}' 	# default prompt
-#RPROMPT='[%* on %D]' 	# prompt for right side of screen
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-    export TERM='xterm-256color'
-else
-    export TERM='xterm-color'
-fi
