@@ -1,0 +1,25 @@
+# vim: set filetype=muttrc
+
+source "~/.mutt/muttrc"
+set mbox_type=Maildir
+
+set mask="!^\\.[^.]"
+unset record    # gmail does this automatically
+set postponed = +30loops/drafts
+
+set from = "crito@30loops.net"
+
+set header_cache=~/.mutt/cache/30loops/headers
+set message_cachedir=~/.mutt/cache/30loops/bodies
+set certificate_file=~/.mutt/certificates
+
+set use_envelope_from # a boolean value, you can deselect it with set
+                      # nouse_envelope_from
+set envelope_from_address= "crito@30loops.net"
+my_hdr From: "Christo Buschek" <crito@30loops.net>
+
+set status_format="-%r-30loops: %f [New:%n Del:%d Tag:%t]"
+set help=no
+
+#color index green black "~f <name> | ~f <other name>"
+#color index red black "~t <email> "

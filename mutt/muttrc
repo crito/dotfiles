@@ -1,0 +1,89 @@
+unset ascii_chars
+set autoedit
+
+set delete=yes
+
+source ~/.mutt/gpg
+source ~/.mutt/aliases
+source ~/.mutt/colors
+source ~/.mutt/mailboxes
+source ~/.mutt/macros
+
+set alias_file = ~/.mutt/aliases
+
+set folder = ~/Maildir
+set spoolfile = +cryptodrunks/INBOX
+
+unset sig_dashes
+#set editor="vim '+/To:'"
+set editor="vim"
+#set record="=sent-mail-`date '+%Y-%m'`"
+set edit_headers
+set mark_old
+set pager_stop
+set pager_index_lines=7
+set forward_quote
+alternative_order text/enriched text/plain text/html
+
+set status_format="mutt_xtitle"
+
+set move = no
+
+set imap_check_subscribed
+
+# Make the index show number of bytes, since Maildir has no Lines:
+set index_format="%4C %Z %{%b %d} %-15.15L (%5c) %s"
+
+# Make the browser show only the info I want
+set folder_format="%2C %t %N %8s %d %f"
+
+# MESSAGE SORTING
+# Only in thread if same subject and Re:
+set sort_re
+set sort=date-received
+
+# No header in replies
+unset header
+
+ignore List X-Spam X-Virus X-Mailman X-* X-.*
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+
+# so that new threads come last
+set sort_browser="reverse-date"
+set sort_aux=last-date-received
+
+set sort="threads"
+set strict_threads="yes"
+unset collapse_unread
+bind index - collapse-thread
+bind index _ collapse-all
+
+# check every min
+set timeout=60
+
+# read html mail
+auto_view text/html
+
+# imitate the old search-body function
+macro index \eb '/~b ' 'search in message bodies'
+
+# simulate the old url menu
+#macro index \cb |urlview\n 'call urlview to extract URLs out of a message'
+#macro pager \cb |urlview\n 'call urlview to extract URLs out of a message'
+
+# Show documentation when pressing F1
+macro generic <f1> "!less /usr/share/doc/mutt/manual.txt\n" "Show Mutt documentation"
+macro index   <f1> "!less /usr/share/doc/mutt/manual.txt\n" "Show Mutt documentation"
+macro pager   <f1> "!less /usr/share/doc/mutt/manual.txt\n" "Show Mutt documentation"
+
+set abort_nosubject=no
+
+# use aspell
+#set ispell="/usr/bin/aspell --mode=email check"
+
+# if we are in any directory starting with the following, pull
+# specific settings from somewhere else
+folder-hook +cryptodrunks/.* "source ~/.mutt/cryptodrunks"
+folder-hook +30loops/.* "source ~/.mutt/30loops"

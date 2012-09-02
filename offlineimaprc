@@ -1,0 +1,97 @@
+[general]
+ui = quiet
+maxsyncaccounts = 2
+# This should contain a comma delimited list of all identifiers of the accounts
+# that are to be synced
+accounts = cryptodrunks,30loops
+# If there are two accounts; `main' and `alternative'...
+#accounts = main,alternative
+
+[Account cryptodrunks]
+# The identifier for the local repository; e.g., the maildir that offlineimap
+# will sync with an IMAP server
+localrepository = cryptodrunks-local
+# The identifier for the remote repository. This is the actual IMAP, which is
+# usually foreign to the system
+remoterepository = cryptodrunks-remote
+# Minutes between syncs
+autorefresh = 5
+# Number of quick-syncs between autorefreshes. Quick-syncs do not update if the
+# only changes were to IMAP flags
+quick = 10
+
+[Repository cryptodrunks-local]
+# Currently, offlineimap only supports maildir and IMAP for local repositories
+type = Maildir
+# Where should the mail be placed?
+localfolders = ~/Maildir/cryptodrunks
+
+[Repository cryptodrunks-remote]
+# Remote repos can be IMAP or Gmail, the latter being a preconfigured IMAP
+type = IMAP
+ssl = yes
+cert_fingerprint = fea0bfb0adbe5cd8e168a7340f6999ebe05233cd
+remoteport = 993
+remotehost = mx20.cryptodrunks.net
+remoteuser = crito
+maxconnections = 3
+# Instead of closing the connection once a sync is complete, offlineimap will
+# send empty data to the server to hold the connection open. A value of 60
+# attempts to hold the connection for a minute between syncs (both quick and
+# autorefresh)
+keepalive = 60
+
+[Account 30loops]
+localrepository = 30loops-Local
+remoterepository = 30loops-Remote
+# Minutes between syncs
+autorefresh = 5
+# Number of quick-syncs between autorefreshes. Quick-syncs do not update if the
+# only changes were to IMAP flags
+quick = 10
+
+[Repository 30loops-Local]
+type = Maildir
+localfolders = ~/Maildir/30loops
+
+# Note the nametrans below in remote-gmail: it undoes this one
+nametrans = lambda foldername: re.sub ('Inbox', 'INBOX',
+                               re.sub ('Drafts', '[Gmail].Drafts',
+                               re.sub ('Sent', '[Gmail].Sent Mail',
+                               re.sub ('Flagged', 'Starred',
+                               re.sub ('_', ' ', foldername.capitalize())))))
+
+[Repository 30loops-Remote]
+type = Gmail
+ssl = yes
+remoteuser = crito@30loops.net
+#realdelete = no
+maxconnections = 3
+
+# newer offlineimap needs this
+cert_fingerprint = f3043dd689a2e7dddfbef82703a6c65ea9b634c1
+
+# Note the nametrans above in local-gmail: it undoes this one
+nametrans = lambda foldername: re.sub ('^\[gmail\]\/', '',
+                               re.sub ('sent_mail', 'sent',
+                               re.sub ('starred', 'flagged',
+                               re.sub (' ', '_', foldername.lower()))))
+
+# We don't want to sync all mail, it would pull everything again
+folderfilter = lambda foldername: foldername not in ['[Gmail]/All Mail',
+                                            'Spam']
+
+# Instead of closing the connection once a sync is complete, offlineimap will
+# send empty data to the server to hold the connection open. A value of 60
+# attempts to hold the connection for a minute between syncs (both quick and
+# autorefresh)
+keepalive = 60
+
+
+[mbnames]
+enabled = yes
+filename = ~/.mutt/mailboxes
+header = "mailboxes "
+peritem = "+%(accountname)s/%(foldername)s"
+sep = " "
+footer = "\n"

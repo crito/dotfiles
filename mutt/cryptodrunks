@@ -1,0 +1,24 @@
+# vim: set filetype=muttrc
+
+source "~/.mutt/muttrc"
+set mbox_type=Maildir
+
+set mask="!^\\.[^.]"
+set record = +cryptodrunks/Sent
+set postponed = +cryptodrunks.net/Drafts
+
+set from = "crito@cryptodrunks.net"
+
+set header_cache=~/.mutt/cache/cryptodrunks/headers
+set message_cachedir=~/.mutt/cache/cryptodrunks/bodies
+set certificate_file=~/.mutt/certificates
+
+set use_envelope_from # a boolean value, you can deselect it with set
+                      # nouse_envelope_from
+set envelope_from_address= "crito@cryptodrunks.net"
+my_hdr From: "crito" <crito@cryptodrunks.net>
+
+set status_format="-%r-CRYPTODRUNKS: %f [New:%n Del:%d Tag:%t]"
+set help=no
+
+save-hook . +INBOX.saved-messages

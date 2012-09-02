@@ -1,0 +1,66 @@
+# vim: filetype=muttrc
+
+# colors: white black green magenta blue cyan yellow red default colorx
+
+color normal		color245	default
+color error		color124	default
+color tilde		color245	default
+color message		yellow		default
+color markers		yellow		default
+color attachment	color221	default
+color search		color48		color240	# how to hilite search patterns in the pager
+#color status		color42		color237
+color status yellow blue
+color indicator		color220	color88
+
+# Index
+color tree		color124	default			# arrow in threads
+color index		color184	default	"~N~p"		# message to myself (new)
+color index		color130	default	"~p"		# message to myself
+color index		color137	default	"~Q"		# messages replied to
+color index		color70		default	"~P" 		# message from myself
+color index		color220	default	~N		# new
+color index		color208	default	~U		# unread
+color index		color142	default	~O		# old
+color index		color91		default	~T		# tagged
+color index		color238	default	"~D(!~p|~p)"	# deleted
+color index		color196	default	~F		# flagged
+color index		color250	default	"~A!~N!~T!~p!~Q!~F!~D!~P"	# the rest
+color index		color220	default	"~A~N!~T!~p!~Q!~F!~D"		# the rest
+color index		color232	color124	~=		# duplicate messages
+
+
+color header		color74		default	"^From"
+color header		color88		default	"^Date"
+color header		color166	default	"^(Subject)"
+color header		color244	default	"^(To|Reply-To|Cc|Bcc):"
+color header		color245	default	"^(X-Original-To):"
+color header		color96		default	"^(User-Agent|X-Editor|X-Mailer):"
+color header 		cyan		default	"^Organization:"
+
+# Body
+color quoted 		color24		default
+color quoted1		color28		default
+color quoted2		color94		default
+color quoted3		color88		default
+color signature		color238	default
+color bold		green		default
+color underline		color208	default
+color normal		color250	default
+color body		color39		default	"(finger|ftp|http|news|telnet)://[^ >]*"
+color body		color39		default	"<URL:[^ ]*>"
+color body		cyan		default	"www\\.[-.a-z0-9]+\\.[a-z][a-z][a-z]?([-_./~a-z0-9]+)?"
+color body		green		default	"[[:alnum:]][-+.#_[:alnum:]]*@[-+.[:alnum:]]*[[:alnum:]]"
+color body		brightred	default	"mailto: *[^ ]+\(\\?subject=[^ ]+\)?"
+color body		color178	default	"[;:][-o][)/(|]"
+color body		color178	default	"[;:][)(|]"
+color body		color178	default	"[*]?((N)?ACK|CU|LOL|SCNR|BRB|BTW|CWYL|FWIW|vbg|GD&R|HTH|HTHBE|IMHO|IMNSHO|IRL|RTFM|ROTFL|ROFL|YMMV)[*]?"
+color body		color178	default	"[ ][*][^*]*[*][ ]?"
+color body		color178	default	"[ ]?[*][^*]*[*][ ]"
+color body		brightred	default	"(BAD signature)"
+color body		green		default	"(Good signature)"
+color body		color208	default	"(heipei|hackvalue|Jojo|Gilger|Johannes)"
+
+color hdrdefault	color238	default
+color body		color128	default	'[-.+\w]+@[-.\w]+[^.]' # e-mail addresses
+color underline		brightgreen	default
