@@ -56,6 +56,11 @@ zsh: base
 	@ln -sf $(DOTFILEDIR)/zsh $(ZSHDIR)
 	@ln -sf $(DOTFILEDIR)/zshrc ~/.zshrc
 
-all: tmux X vim mail zsh
+bin: base
+	@echo Creating the scripts directory ...
+	$(shell [[ -d ~/bin ]] && rm -rf ~/bin)
+	@ln -sf $(DOTFILEDIR)/bin ~/bin
+
+all: tmux X vim mail zsh bin
 
 .PHONY: base tmux X vim mail zsh all
