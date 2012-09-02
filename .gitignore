@@ -1,1 +1,3 @@
 vim/vim-addons
+mutt/cache/*
+mutt/hcache
