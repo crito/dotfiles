@@ -81,7 +81,10 @@ mpd: base
 	@ln -sf $(DOTFILEDIR)/mpdconf ~/.mpdconf
 	@touch ~/.mpd/{mpd.db,mpd.log,mpd.pid,mpdstate}
 
+font: base
+	@echo Placing fonts.conf
+	@ln -sf $(DOTFILEDIR)/fonts.conf ~/.fonts.conf
 
-all: tmux X vim mail zsh bin unison twmn mpd
+all: tmux X vim mail zsh bin unison twmn mpd font
 
-.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd
+.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font
