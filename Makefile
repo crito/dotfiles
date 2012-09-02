@@ -67,6 +67,12 @@ bin: base
 	$(shell [[ -d ~/bin ]] && rm -rf ~/bin)
 	@ln -sf $(DOTFILEDIR)/bin ~/bin
 
-all: tmux X vim mail zsh bin unison
+twmn: base
+	@echo Configure notification daemon
+	$(shell [[ -d ~/.config ]] || mkdir ~/.config)
+	$(shell [[ -d ~/.config/twmn ]] && rm -rf ~/.config/twmn)
+	@ln -sf $(DOTFILEDIR)/twmn ~/.config/twmn
 
-.PHONY: base tmux X vim mail zsh all unison irssi
+all: tmux X vim mail zsh bin unison twmn
+
+.PHONY: base tmux X vim mail zsh all unison irssi twmn
