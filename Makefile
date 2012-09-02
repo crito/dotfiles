@@ -77,7 +77,10 @@ mpd: base
 	@echo Configure mpd music daemon ...
 	$(shell [[ -d ~/.mpd ]] || mkdir ~/.mpd)
 	$(shell [[ -d ~/.mpd/playlists ]] || mkdir ~/.mpd/playlists)
+	$(shell [[ -d ~/Music ]] || mkdir ~/Music)
 	@ln -sf $(DOTFILEDIR)/mpdconf ~/.mpdconf
+	@touch ~/.mpd/{mpd.db,mpd.log,mpd.pid,mpdstate}
+
 
 all: tmux X vim mail zsh bin unison twmn mpd
 
