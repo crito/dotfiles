@@ -2,14 +2,16 @@ unset ascii_chars
 set autoedit
 
 set delete=yes
+set alias_file = ~/.aliases
+set sort_alias= alias
+set reverse_alias=yes
 
 source ~/.mutt/gpg
-#source ~/.mutt/aliases
 source ~/.mutt/colors
 source ~/.mutt/mailboxes
 source ~/.mutt/macros
 
-set alias_file = ~/.aliases
+source $alias_file
 
 set folder = ~/Maildir
 set spoolfile = +cryptodrunks/INBOX
