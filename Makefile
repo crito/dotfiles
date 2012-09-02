@@ -4,6 +4,7 @@ VIMDIR := ~/.vim
 MUTTDIR := ~/.mutt
 IRSSIDIR := ~/.irssi
 ZSHDIR := ~/.zsh
+UNISONDIR := ~/.unison
 
 base: | $(DOTFILEDIR)
 	@echo Updating the git repository ...
@@ -19,7 +20,12 @@ $(DOTFILEDIR):
 	# Use the below string to access the dotfiles readonly
 	# @git clone git://github.com/crito/dotfiles.git $(DOTFILEDIR)
 
-irssi:
+unison: base
+	@echo Configuring file replication ...
+	$(shell [[ -d $(UNISONDIR) ]] && rm -rf $(UNISONDIR))
+	@ln -sf $(DOTFILEDIR)/unison $(UNISONDIR)
+
+irssi: base
 	@echo Configuring the chat setup ...
 	$(shell [[ -d $(IRSSIDIR) ]] && rm -rf $(IRSSIDIR))
 	@ln -sf $(DOTFILEDIR)/irssi $(IRSSIDIR)
@@ -61,6 +67,6 @@ bin: base
 	$(shell [[ -d ~/bin ]] && rm -rf ~/bin)
 	@ln -sf $(DOTFILEDIR)/bin ~/bin
 
-all: tmux X vim mail zsh bin
+all: tmux X vim mail zsh bin unison
 
-.PHONY: base tmux X vim mail zsh all
+.PHONY: base tmux X vim mail zsh all unison irssi
