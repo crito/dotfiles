@@ -4,12 +4,12 @@ set autoedit
 set delete=yes
 
 source ~/.mutt/gpg
-source ~/.mutt/aliases
+#source ~/.mutt/aliases
 source ~/.mutt/colors
 source ~/.mutt/mailboxes
 source ~/.mutt/macros
 
-set alias_file = ~/.mutt/aliases
+set alias_file = ~/.aliases
 
 set folder = ~/Maildir
 set spoolfile = +cryptodrunks/INBOX
