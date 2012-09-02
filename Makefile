@@ -68,11 +68,17 @@ bin: base
 	@ln -sf $(DOTFILEDIR)/bin ~/bin
 
 twmn: base
-	@echo Configure notification daemon
+	@echo Configure notification daemon ...
 	$(shell [[ -d ~/.config ]] || mkdir ~/.config)
 	$(shell [[ -d ~/.config/twmn ]] && rm -rf ~/.config/twmn)
 	@ln -sf $(DOTFILEDIR)/twmn ~/.config/twmn
 
-all: tmux X vim mail zsh bin unison twmn
+mpd: base
+	@echo Configure mpd music daemon ...
+	$(shell [[ -d ~/.mpd ]] || mkdir ~/.mpd)
+	$(shell [[ -d ~/.mpd/playlists ]] || mkdir ~/.mpd/playlists)
+	@ln -sf $(DOTFILEDIR)/mpdconf ~/.mpdconf
 
-.PHONY: base tmux X vim mail zsh all unison irssi twmn
+all: tmux X vim mail zsh bin unison twmn mpd
+
+.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd
