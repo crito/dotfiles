@@ -5,9 +5,12 @@ function collapse_pwd {
 
 # Show a different symbol, whether its a git or mercurial repository
 function prompt_char {
-        git branch >/dev/null 2>/dev/null && echo '±' && return
-        hg root >/dev/null 2>/dev/null && echo '☿' && return
-        echo '○'
+        git branch >/dev/null 2>/dev/null && echo 'γ' && return
+        hg root >/dev/null 2>/dev/null && echo 'μ' && return
+        echo '♉'
+        #git branch >/dev/null 2>/dev/null && echo '±' && return
+        #hg root >/dev/null 2>/dev/null && echo '☿' && return
+        #echo '○'
 }
 
 # If a virtualenv is active, show the name
