@@ -14,6 +14,8 @@ export GNOME_KEYRING_PID
 xrdb -load ~/.Xresources &
 xmodmap ~/.dotfiles/swapkeys &
 
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
 mpd &
 dropboxd &
 
