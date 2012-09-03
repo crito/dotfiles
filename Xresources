@@ -54,8 +54,8 @@ xterm*multiScroll:        true
 xterm*toolBar:            false
 
 ! urxvt -----------------------------------------------------------------------
-urxvt*font:             xft:terminus:pixelsize=14
-urxvt*boldFont:         xft:terminus:pixelsize=14
+urxvt*font:             xft:terminus:pixelsize=14:antialias=true:hinting=true:medium
+urxvt*boldFont:         xft:terminus:pixelsize=14:antialias=true:hinting=true:bold
 URxvt.perl-ext-common:  default,url-select,clipboard,font
 URxvt.keysym.M-u:       perl:url-select:select_next
 URxvt.urlLauncher:      firefox
