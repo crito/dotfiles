@@ -20,6 +20,10 @@ $(DOTFILEDIR):
 	# Use the below string to access the dotfiles readonly
 	# @git clone git://github.com/crito/dotfiles.git $(DOTFILEDIR)
 
+git: base
+	@echo Configuring git
+	@ln -sf $(DOTFILEDIR)/gitconfig ~/.gitconfig
+
 unison: base
 	@echo Configuring file replication ...
 	$(shell [[ -d $(UNISONDIR) ]] && rm -rf $(UNISONDIR))
@@ -51,6 +55,7 @@ mail: base
 	@echo Configuring mail \(Don\'t forget to run offlineimap prior to starting mutt\) ...
 	$(shell [[ -d $(MUTTDIR) ]] && rm -rf $(MUTTDIR))
 	$(shell [[ -d ~/.offlineimap ]] || mkdir ~/.offlineimap)
+	$(shell [[ -d ~/Maildir ]] || mkdir ~/Maildir)
 	@ln -sf $(DOTFILEDIR)/mutt $(MUTTDIR)
 	@ln -sf $(DOTFILEDIR)/offlineimaprc ~/.offlineimaprc
 	@ln -sf $(DOTFILEDIR)/muttrc ~/.muttrc
@@ -81,7 +86,10 @@ mpd: base
 	@ln -sf $(DOTFILEDIR)/mpdconf ~/.mpdconf
 	@touch ~/.mpd/{mpd.db,mpd.log,mpd.pid,mpdstate}
 
+font: base
+	@echo Placing fonts.conf
+	@ln -sf $(DOTFILEDIR)/fonts.conf ~/.fonts.conf
 
-all: tmux X vim mail zsh bin unison twmn mpd
+all: tmux X vim mail zsh bin unison twmn mpd font git
 
-.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd
+.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font git
