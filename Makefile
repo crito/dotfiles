@@ -20,6 +20,10 @@ $(DOTFILEDIR):
 	# Use the below string to access the dotfiles readonly
 	# @git clone git://github.com/crito/dotfiles.git $(DOTFILEDIR)
 
+git: base
+	@echo Configuring git
+	@ln -sf $(DOTFILEDIR)/gitconfig ~/.gitconfig
+
 unison: base
 	@echo Configuring file replication ...
 	$(shell [[ -d $(UNISONDIR) ]] && rm -rf $(UNISONDIR))
@@ -85,6 +89,6 @@ font: base
 	@echo Placing fonts.conf
 	@ln -sf $(DOTFILEDIR)/fonts.conf ~/.fonts.conf
 
-all: tmux X vim mail zsh bin unison twmn mpd font
+all: tmux X vim mail zsh bin unison twmn mpd font git
 
-.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font
+.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font git
