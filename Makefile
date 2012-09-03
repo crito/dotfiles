@@ -31,8 +31,8 @@ unison: base
 
 irssi: base
 	@echo Configuring the chat setup ...
-	$(shell [[ -d $(IRSSIDIR) ]] && rm -rf $(IRSSIDIR))
-	@ln -sf $(DOTFILEDIR)/irssi $(IRSSIDIR)
+	$(shell [[ -d $(IRSSIDIR) ]] || mkdir $(IRSSIDIR))
+	@ln -sf $(DOTFILEDIR)/irssi/scripts $(IRSSIDIR)/scripts
 
 tmux: base
 	@echo Configuring tmux ...
@@ -90,6 +90,6 @@ font: base
 	@echo Placing fonts.conf
 	@ln -sf $(DOTFILEDIR)/fonts.conf ~/.fonts.conf
 
-all: tmux X vim mail zsh bin unison twmn mpd font git
+all: tmux X vim mail zsh bin unison twmn mpd font git irssi
 
-.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font git
+.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font git irssi

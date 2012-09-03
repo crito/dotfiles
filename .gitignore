@@ -4,3 +4,4 @@ mutt/hcache
 mutt/mailboxes
 unison/*
 !unison/replicate.prf
+irssi/notify.log
