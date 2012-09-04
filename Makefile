@@ -20,6 +20,12 @@ $(DOTFILEDIR):
 	# Use the below string to access the dotfiles readonly
 	# @git clone git://github.com/crito/dotfiles.git $(DOTFILEDIR)
 
+mimetypes: base
+	@echo Configuring mimetypes and default applications ...
+	$(shell [[ -d ~/.local/share ]] || mkdir -p ~/.local/share)
+	$(shell [[ -d ~/.local/share/applications ]] && rm -rf ~/.local/share/applications)
+	@ln -sf $(DOTFILEDIR)/mimetypes ~/.local/share/applications
+	
 git: base
 	@echo Configuring git
 	@ln -sf $(DOTFILEDIR)/gitconfig ~/.gitconfig
@@ -98,6 +104,6 @@ font: base
 	@echo Placing fonts.conf
 	@ln -sf $(DOTFILEDIR)/fonts.conf ~/.fonts.conf
 
-all: tmux X vim mail zsh bin unison twmn mpd font git irssi mercurial rtorrent
+all: tmux X vim mail zsh bin unison twmn mpd font git irssi mercurial rtorrent mimetypes
 
-.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font git irssi mercurial rtorrent
+.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font git irssi mercurial rtorrent mimetypes

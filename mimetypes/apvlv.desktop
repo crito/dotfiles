@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=apvlv
+GenericName=PDF and DjVu viewer
+TryExec=apvlv
+Exec=apvlv %f
+Terminal=false
+Type=Application
+Icon=apvlv
+NoDisplay=true
+Categories=Graphics;2DGraphics;VectorGraphics;Viewer;
+MimeType=application/pdf;image/vnd.djvu;
