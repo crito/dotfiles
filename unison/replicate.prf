@@ -1,8 +1,9 @@
 root=/home/crito/
 root=ssh://192.168.2.100//home/crito
 path=Documents
-path=Calibre\ Library
-#path=Music
+path=Books
+path=Music
 path=Pictures
 path=.wallpapers
+path=.fonts
 auto=true

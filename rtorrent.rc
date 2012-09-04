@@ -1,0 +1,52 @@
+# 95% of download speed
+download_rate = 308
+
+# 80% of upload speed
+upload_rate = 50
+
+# upload_speed * 1.3
+max_peers = 65
+min_peers = 20
+
+min_peers_seed = 10
+max_peers_seed = 30
+
+# 1 + (upload speed / 6)
+max_uploads = 9
+
+check_hash = yes
+
+directory = /home/crito/.rtorrent/torrents
+session = /home/crito/.rtorrent/session
+
+# We set two variables for the watch scheduler, custom1 defines the target path and custom2 is a flag, its set or not.
+schedule = watch_directory,5,5,"load_start=/home/crito/Downloads/*.torrent,d.set_custom1=/home/crito/Downloads/completed,d.set_custom2=1"
+schedule = untied_directory,5,5,stop_untied=
+schedule = tied_directory,5,5,start_tied=
+
+# Stop downloading when diskspace is low
+schedule = low_diskspace,5,60,close_low_diskspace=100M
+
+# Clear custom2 when download completes, otherwise it gets deleted, when the torrent gets deleted.
+system.method.set_key = event.download.finished,set_done_var,d.set_custom2=
+
+# Erase data files when a download is removed that still has custom2 set.
+system.method.set_key = event.download.erased,rm_incomplete,"branch=d.get_custom2=,\"execute={rm,-rf,--,$d.get_base_path=}\""
+
+# Move completed downloads
+#system.method.insert=checkdirs1,simple,"not=\"$equal={d.get_custom1=,d.get_base_path=}\""
+#system.method.insert=movecheck1,simple,"and={checkdirs1=,d.get_complete=,d.get_custom1=}"
+#system.method.insert=movedir1,simple,"d.set_directory=$d.get_custom1=;execute=mv,-u,$d.get_base_path=,$d.get_custom1=;d.set_custom1=;d.stop=;d.start="
+#system.method.set_key=event.download.hash_done,move_hashed1,"branch={$movecheck1=,movedir1=}"
+system.method.set_key =event.download.finished,move_complete,"d.set_directory=$d.get_custom1= ;execute=mv,-u,$d.get_base_path=,$d.get_custom1="
+
+# Specify a single port
+port_range = 49166-49166
+
+# enable encryption
+encryption = allow_incoming,try_outgoing,enable_retry
+
+# enable dht
+dht = auto
+dht_port = 6881
+peer_exchange = yes
