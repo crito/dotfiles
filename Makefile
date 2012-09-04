@@ -24,6 +24,10 @@ git: base
 	@echo Configuring git
 	@ln -sf $(DOTFILEDIR)/gitconfig ~/.gitconfig
 
+mercurial: base
+	@echo Configuring mercurial
+	@ln -sf $(DOTFILEDIR)/hgrc ~/.hgrc
+
 unison: base
 	@echo Configuring file replication ...
 	$(shell [[ -d $(UNISONDIR) ]] && rm -rf $(UNISONDIR))
@@ -90,6 +94,6 @@ font: base
 	@echo Placing fonts.conf
 	@ln -sf $(DOTFILEDIR)/fonts.conf ~/.fonts.conf
 
-all: tmux X vim mail zsh bin unison twmn mpd font git irssi
+all: tmux X vim mail zsh bin unison twmn mpd font git irssi mercurial
 
-.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font git irssi
+.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font git irssi mercurial
