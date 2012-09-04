@@ -262,7 +262,11 @@ cmap W w
 cmap Q q 
 
 " Fast saving
-nmap <leader>w :w!<cr>
+" nmap <leader>w :w!<cr>
+nnoremap <leader>w <C-w>v<C-w>l
+
+" Map jj to escape
+inoremap jj <ESC>
 
 " Fast editing of the .vimrc
 map <leader>e :e! ~/.vimrc<cr>
