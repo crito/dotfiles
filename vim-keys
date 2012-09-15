@@ -3,6 +3,8 @@ Windows
 
 Ctrl+w + v
   Vertical Split
+<leader>w
+  Vertical split and focus to new window
 Ctrl+w + s
   Horizontal Split
 Ctrl+w + q
@@ -85,28 +87,28 @@ _
 tasklist
 --------
 
-\td
+<leader>td
   open tasklist. Search in all open buffers for FIXME or TODO and display a
   list. Easily jump between those positions.
 
 pep8
 ----
 
-\8
+<leader>8
   run a pep8 check on the current buffer.
 
 revision history
 ----------------
 
-\g
+<leader>g
   toggle gundo.
 
 command-t
 ---------
 
-\t
+<leader>t
   fuzzy text matching to find any file
-\b
+<leader>b
   fuzzy text matching to find any open buffer
 
 Inside the prompt you have the following shortcuts:
@@ -125,7 +127,7 @@ CTRL+E
 ack-grep
 --------
 
-\a
+<leader>a
   Open ack-grep search
 :grep
   vim grep  
@@ -133,7 +135,7 @@ ack-grep
 file browser
 ------------
 
-\n
+<leader>n
   toggle NERDtree
 
 vim general

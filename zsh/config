@@ -69,6 +69,9 @@ fi
 
 setopt appendhistory autocd
 
+# Unset LC_ALL so the LC_COLLATE option in /etc/locale.conf takes precedence
+export LC_ALL=
+
 # Default editor
 export EDITOR=/usr/bin/vim
 # Default browser, set this for urlscan (mutt)

@@ -13,6 +13,7 @@ export GNOME_KEYRING_PID
 
 xrdb -load ~/.Xresources &
 xmodmap ~/.dotfiles/swapkeys &
+unclutter -idle 5 &
 
 [[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
 

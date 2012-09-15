@@ -57,7 +57,7 @@ fun! SetupVAM()
   exec 'set runtimepath+='.vam_install_path.'/vim-addon-manager'
 
   " Tell VAM which plugins to fetch & load:
-  call vam#ActivateAddons(["github:nvie/vim-flake8", "github:mileszs/ack.vim", "github:kien/ctrlp.vim", "github:ddollar/nerdcommenter", "github:scrooloose/syntastic", "github:majutsushi/tagbar", "github:tpope/vim-fugitive", "github:vim-scripts/ZoomWin", "github:chrisbra/NrrwRgn", "github:vim-scripts/TaskList.vim", "github:sjl/gundo.vim", "github:vim-scripts/YankRing.vim", "github:scrooloose/nerdtree", "snipmate-snippets", "github:int3/vim-extradite", "github:ervandew/supertab", "github:dterei/VimBookmarking", "github:sjbach/lusty", "github:tpope/vim-surround", "github:tsaleh/vim-matchit", "Gist", "github:mattn/webapi-vim", "surround"], {'auto_install' : 0})
+  call vam#ActivateAddons(["github:nvie/vim-flake8", "github:mileszs/ack.vim", "github:kien/ctrlp.vim", "github:ddollar/nerdcommenter", "github:scrooloose/syntastic", "github:majutsushi/tagbar", "github:tpope/vim-fugitive", "github:vim-scripts/ZoomWin", "github:chrisbra/NrrwRgn", "github:vim-scripts/TaskList.vim", "github:sjl/gundo.vim", "github:vim-scripts/YankRing.vim", "github:scrooloose/nerdtree", "snipmate-snippets", "github:int3/vim-extradite", "github:ervandew/supertab", "github:dterei/VimBookmarking", "github:sjbach/lusty", "github:tpope/vim-surround", "github:tsaleh/vim-matchit", "Gist", "github:mattn/webapi-vim", "surround", "github:duff/vim-scratch"], {'auto_install' : 0})
   " sample: call vam#ActivateAddons(['pluginA','pluginB', ...], {'auto_install' : 0})
 
   " Addons are put into vam_install_path/plugin-name directory
@@ -233,6 +233,8 @@ function! StatuslineCurrentHighlight()
     endif
 endfunction
 
+" Always open a scratch buffer when opening vim
+" au VimEnter * Scratch
 
 " ================ Key mappings and Plugin configuration =============
 
@@ -258,8 +260,8 @@ nnoremap <silent> ,z :bp<CR>
 nnoremap <silent> ,x :bn<CR>
 
 " Automatic replacements
-cmap W w 
-cmap Q q 
+"cmap W w 
+"cmap Q q 
 
 " Fast saving
 " nmap <leader>w :w!<cr>
