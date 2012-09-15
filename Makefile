@@ -104,6 +104,18 @@ font: base
 	@echo Placing fonts.conf
 	@ln -sf $(DOTFILEDIR)/fonts.conf ~/.fonts.conf
 
-all: tmux X vim mail zsh bin unison twmn mpd font git irssi mercurial rtorrent mimetypes
+systemd: base
+	@echo Configure systemd user processes
+	@sudo ln -sf $(DOTFILEDIR)/systemd/offlineimap.service /etc/systemd/system/offlineimap.service
+	@sudo systemctl --system daemon-reload
 
-.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font git irssi mercurial rtorrent mimetypes
+nm-dispatcher: base
+	@echo Setting network manager dispatch scripts
+	@sudo cp $(DOTFILEDIR)/nm-dispatcher/fileserver /etc/NetworkManager/dispatcher.d/10-fileserver
+	@sudo cp $(DOTFILEDIR)/nm-dispatcher/offlineimap /etc/NetworkManager/dispatcher.d/20-offlineimap
+	@sudo chmod 0700 /etc/NetworkManager/dispatcher.d/10-fileserver
+	@sudo chmod 0700 /etc/NetworkManager/dispatcher.d/20-offlineimap
+
+all: tmux X vim mail zsh bin unison twmn mpd font git irssi mercurial rtorrent mimetypes systemd nm-dispatcher
+
+.PHONY: base tmux X vim mail zsh all unison irssi twmn mpd font git irssi mercurial rtorrent mimetypes systemd nm-dispatcher

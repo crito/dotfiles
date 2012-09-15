@@ -1,0 +1,11 @@
+#!/bin/bash
+
+case "$2" in
+	up)
+	   systemctl start offlineimap.service
+	 ;;
+
+	down)
+	   systemctl stop offlineimap.service
+	 ;;
+esac

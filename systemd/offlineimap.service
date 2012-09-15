@@ -1,0 +1,11 @@
+[Unit]
+Description=OfflineIMAP
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/offlineimap
+Restart=on-abort
+User=crito
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ $CONNECTION_ID == Grotto-Mueggel ]; then
+        case "$2" in
+                up)
+                   /usr/bin/sleep 6
+                   /bin/mount /mnt/fs/movies
+                 ;;
+
+                down)
+                   /bin/umount /mnt/fs/movies
+                 ;;
+        esac
+ fi
