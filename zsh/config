@@ -77,7 +77,7 @@ export EDITOR=/usr/bin/vim
 # Default browser, set this for urlscan (mutt)
 export BROWSER=/usr/bin/firefox
 
-export LANG=en_us.UTF-8
+export LANG=en_US.UTF-8
 
 export PATH="$HOME/bin:$HOME/.bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/usr/local/games:/usr/games"
 
