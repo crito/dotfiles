@@ -58,8 +58,8 @@ urxvt*font:             xft:terminus:pixelsize=14:antialias=true:hinting=true:me
 urxvt*boldFont:         xft:terminus:pixelsize=14:antialias=true:hinting=true:bold
 URxvt.perl-ext-common:  default,url-select,clipboard,font
 URxvt.keysym.M-u:       perl:url-select:select_next
-URxvt.urlLauncher:      firefox
-URxvt.underlineURLs:    true
+URxvt.url-select.launcher:   /usr/bin/firefox -new-tab
+URxvt.url-select.underline: true
 urxvt*termName:         xterm-256color
 urxvt*scrollBar:        false
 urxvt*matcher.button:   1
