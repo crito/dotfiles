@@ -34,7 +34,8 @@ alias rst='touch tmp/restart.txt'
 # commands starting with % for pasting from web
 alias %=' '
 
-alias pp='python -m json.tool'
+# alias pp='python -m json.tool'
+alias pp='pjson'
 
 alias rtorrent='tmux new -d -s rtorrent -n rtorrent rtorrent; echo "rtorrent started in a tmux session. Attach to it by running: tmux attach -t rtorrent"'
 

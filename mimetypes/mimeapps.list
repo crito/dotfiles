@@ -1,5 +1,5 @@
 [Default Applications]
-application/pdf=apvlv.desktop
+application/pdf=evince.desktop
 text/html=firefox.desktop
 x-scheme-handler/http=firefox.desktop
 x-scheme-handler/https=firefox.desktop
