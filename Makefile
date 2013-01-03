@@ -58,6 +58,7 @@ X: base
 	@ln -sf $(DOTFILEDIR)/i3 $(I3DIR)
 	@ln -sf $(DOTFILEDIR)/Xresources ~/.Xresources
 	@ln -sf $(DOTFILEDIR)/xinitrc ~/.xinitrc
+	@ln -sf $(DOTFILEDIR)/swapkeys ~/.Xmodmap
 
 vim: base
 	@echo Configuring vim ...
