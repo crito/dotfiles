@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Start the trayer int the upper right corner as part of the bar
+# 180px wide with opaque gray background
+if [ -z "$(pidof trayer)" ]; then
+    trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand false --width 130 --widthtype pixel --transparent true --tint 0x222222 --alpha 0 --height 18 &
+fi
+
+# Fix the weird cross cursor and use normal arrow instead
+#xcompmgr -c &
+
+gnome-screensaver &
+
+[[ -f ~/.Xmodmap ]] && xmodmap ~/.Xmodmap
+
+#hotot &
+#pidgin &
+#thunderbird &

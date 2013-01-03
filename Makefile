@@ -25,6 +25,14 @@ mimetypes: base
 	$(shell [[ -d ~/.local/share ]] || mkdir -p ~/.local/share)
 	$(shell [[ -d ~/.local/share/applications ]] && rm -rf ~/.local/share/applications)
 	@ln -sf $(DOTFILEDIR)/mimetypes ~/.local/share/applications
+
+xmonad: base
+	@echo Configuring xmonad ...
+	$(shell [[ -d ~/.xmonad ]] || mkdir -p ~/.xmonad)
+	@ln -sf $(DOTFILEDIR)/xmonad/startxmonad ~/.startxmonad
+	@ln -sf $(DOTFILEDIR)/xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+	@echo Compiling haskell configuration
+	@xmonad --recompile
 	
 git: base
 	@echo Configuring git
